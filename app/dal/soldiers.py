@@ -1,7 +1,7 @@
 from sqlmodel import Session, select
 from sqlalchemy.exc import IntegrityError
 from app.models.soldiers import Soldier
-from app.models.dorms import Dorm
+# from app.models.dorms import Dorm
 
 class SoldiersDAL:
     def __init__(self, session: Session):
