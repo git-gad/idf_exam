@@ -36,10 +36,16 @@ class SoldiersDAL:
         for i in range(80):
             soldiers[i].placed_in_dorm = True
             placed += 1
-        for i in range(80, 161):
+        for i in range(80, 160):
             soldiers[i].placed_in_dorm = True
             placed += 1
         not_placed = total - placed
         return {'placed': placed, 'not_placed': not_placed}
 
+    def get_by_private_num(self, private_num):
+        soldier = self.session.exec(select(Soldier).where(Soldier.private_num == private_num)).one()
+        return soldier
+    
+    def get_all(self) -> list[Soldier]:
+        return self.session.exec(select(Soldier)).all()
             
